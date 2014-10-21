@@ -18,10 +18,7 @@ html, body {padding-top: 40px; height: 100%; margin: 0; }
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto [footer-height];
-}
-#footer, #push {
-  height: [footer-height];
+
 }
 
 
@@ -37,7 +34,4 @@ html, body {
     margin: 0 auto -4em;
 }
 
-.footer, .push {
-    height: 4em;
-}
 
