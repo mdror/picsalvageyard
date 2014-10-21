@@ -20,6 +20,10 @@ html, body {padding-top: 40px; height: 100%; margin: 0; }
   height: 100%;
   margin: 0 auto [footer-height];
 }
+#footer, #push {
+  height: [footer-height];
+}
+
 
 
 html, body {
