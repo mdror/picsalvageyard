@@ -24,9 +24,9 @@ html, body {padding-top: 40px; height: 100%; margin: 0; }
   height: [footer-height];
 }
 
-* {
+/* {
     margin: 0;
-}
+}*/
 
 html, body {
     height: 100%;
