@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
 
-  #devise_for :users
-  root 'user#index'
-   resources :images do
-     get 'rescue', on: :collection
-   end
+  root 'home#index'
+
   resources :images do
-    resources :comments
+   get 'rescue', on: :collection
+   resources :comments
   end
 
-
-  resources :images
   get "pages/about"
+
+  devise_for :users
 end

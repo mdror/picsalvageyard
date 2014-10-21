@@ -24,8 +24,7 @@ ActiveRecord::Schema.define(version: 20141021141330) do
 
   create_table "images", force: true do |t|
     t.string  "image"
-    t.integer "image_id"
-    t.boolean "rescued",  default: false
+    t.boolean "rescued", default: false
   end
 
   create_table "users", force: true do |t|
