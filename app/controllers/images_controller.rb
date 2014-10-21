@@ -13,7 +13,7 @@ class ImagesController < ApplicationController
   end
 
   def new
-    @image = Image.new
+    @image = Images.new
   end
 
   def show
@@ -24,19 +24,8 @@ class ImagesController < ApplicationController
 
     @image = Image.find(params[:id])
     @comment = @image.comments
-    @image.tag_list = ""
-    @image_tag = Image.find(params[:id])
+
   end
-
-  def tags
-    @images = Image.tagged_with(params[:tag])#['hi1', 'hi2']['hi1', 'hi2'] #.each do |tag| (params[:tag])#['hi1', 'hi2']
-
-    #if params[:tag].present?
-      #@tags = Image.tagged_with(params[:tag])
-  end
-
-
-
 
 
   def create
@@ -59,27 +48,27 @@ class ImagesController < ApplicationController
     end
   end
 
-  def update
-    @image = Image.find(params[:id])
-    unless @image.tag_list.empty?
-      #add new tags
-      @image.tag_list.add(params[:image][:tag_list], parse: true)
-    end
-    #params[:image][:rescued] = true if @image.comments.any?
+  # def update
+  #   @image = Image.find(params[:id])
+  #   unless @image.tag_list.empty?
+  #     #add new tags
+  #     @image.tag_list.add(params[:image][:tag_list], parse: true)
+  #   end
+  #   #params[:image][:rescued] = true if @image.comments.any?
 
-    if @image.update_attributes(image_params.except(:tag_list))
-      redirect_to @image
-    else
-      render 'new'
-    end
-  end
+  #   if @image.update_attributes(image_params.except(:tag_list))
+  #     redirect_to @image
+  #   else
+  #     render 'new'
+  #   end
+  # end
 
 
 
   private
 
   def image_params
-    params.require(:image).permit(:image, :rescued, comments_attributes: [:content])
+    params.require(:image).permit(:image, :rescue, comments_attributes: [:content])
   end
 
 

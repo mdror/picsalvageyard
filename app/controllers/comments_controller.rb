@@ -12,14 +12,6 @@ class CommentsController < ApplicationController
      #
   end
 
-#   def index
-#    @search = Comment.search do
-#      keywords params[:query]
-#    end
-#    @posts = @search.results
-#  end
-# end
-
   def new
   end
 
@@ -27,8 +19,17 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.create(comment_params)
+    redirect_to article_path(@article)
   end
 
+
+  private
+    def comment_params
+      params.require(:comment).permit(:commenter, :body)
+    end
+end
 
 
 

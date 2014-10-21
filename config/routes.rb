@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :images do
     get 'rescue', on: :collection
   end
-  resources :comments
-  resources :images
+  resources :images do
+    resources :comments
+  end
 
+
+  resources :images
+  get "pages/about"
 end
