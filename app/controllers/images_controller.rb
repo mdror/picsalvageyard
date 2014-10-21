@@ -13,7 +13,7 @@ class ImagesController < ApplicationController
   end
 
   def new
-    @image = Images.new
+    @image = Image.new
   end
 
   def show
@@ -28,25 +28,39 @@ class ImagesController < ApplicationController
   end
 
 
+
   def create
-    @image = Image.new(image_params)
-    #@image.rescued = true if @image.comments.any?
+  @user = Image.create(image_params)
     if @image.save
       redirect_to @image
     else
       render 'new'
     end
-
-
   end
 
-  def upload
-  uploaded_io = params[:image]
-  File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename),
-   'wb') do |file|
-    file.write(uploaded_io.read)
-    end
+  private
+
+  def image_params
+    params.require(:image).permit(:image, :rescue, comments_attributes: [:content])
   end
+end
+
+
+
+
+
+# Use strong_parameters for attribute whitelisting
+# Be sure to update your create() and update() controller methods.
+
+
+
+  # def upload
+  # uploaded_io = params[:image]
+  # File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename),
+  #  'wb') do |file|
+  #   file.write(uploaded_io.read)
+  #   end
+  # end
 
   # def update
   #   @image = Image.find(params[:id])
@@ -65,14 +79,4 @@ class ImagesController < ApplicationController
 
 
 
-  private
 
-  def image_params
-    params.require(:image).permit(:image, :rescue, comments_attributes: [:content])
-  end
-
-
-
-
-
-end
