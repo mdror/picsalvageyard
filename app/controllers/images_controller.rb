@@ -7,7 +7,7 @@ class ImagesController < ApplicationController
     #@images = @images.rescued
   end
 
-  def rescued
+  def rescue
     @images = Image.not_rescued
 
   end
@@ -34,8 +34,7 @@ class ImagesController < ApplicationController
     #if params[:tag].present?
       #@tags = Image.tagged_with(params[:tag])
   end
-  #end
-  #raise 'Hi THERE'
+
 
 
 
@@ -48,9 +47,7 @@ class ImagesController < ApplicationController
     else
       render 'new'
     end
-  ##
 
-##
 
   end
 
@@ -77,20 +74,12 @@ class ImagesController < ApplicationController
     end
   end
 
- # currently deprecated?
- def tagged
-   if params[:tag].present?
-     @image = Image.tagged_with(params[:tag])
-   else
-     @image = Image.all
-   end
- end
-#acts_as_taggable_on :tags
+
 
   private
 
-  def image_params   #4.29 added :tag_list to permit
-    params.require(:image).permit(:image, :rescued, :tag_list, comments_attributes: [:content])
+  def image_params
+    params.require(:image).permit(:image, :rescued, comments_attributes: [:content])
   end
 
 

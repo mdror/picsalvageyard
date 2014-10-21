@@ -1,0 +1,29 @@
+<h1>Add Your Comments/Tags or Repurpose To Rescue This Orphaned Pic </h1>
+
+  <%= image_tag @image.image %>
+<p>
+    Comments:
+</p>
+<ul>
+  <% @image.comments.each do |comment| %>
+    <ol><%= comment.content %></ol>
+
+  <% end %>
+</ul>
+
+<p>
+
+
+    Tags: <%= raw @image_tag.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %>
+</p>
+
+<div id="tag_cloud">
+  <% tag_cloud @image.tag_counts, %w[s,m,l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag), class: css_class %>
+  <% end %>
+
+
+<%# @image.tags.any? %>
+  <%# @image.tags.each do |tag| %>
+  <%#= link_to tag.name, tagged_url(:tag => tag.name) %>
+<%# end %>

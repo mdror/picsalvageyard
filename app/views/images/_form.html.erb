@@ -1,0 +1,31 @@
+<% if @image.errors.any? %>
+  <h2>There were errors saving your pic</h2>
+  <ul>
+    <% @image.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<%= form_for @image, :html => {:multipart => true} do |f| %>
+  <fieldset>
+    <div class='field'>
+      <%= f.file_field :image if @image.new_record? %>
+
+      <%= f.fields_for :comments, @image.comments.new do |c| %>
+        <%= c.label :comments %>
+        <%= c.text_area :content %>
+      <% end %>
+
+      <%#= f.fields_for :tags, @image.tags.new do |t| %>
+        <%= f.label :tags, "Tags (separated by commas)" %><br />
+        <%= f.text_field :tag_list %>
+      <%# end %>
+
+
+ </fieldset>
+  <%= f.submit "Submit" %>
+<% end %>
+
+<br/>

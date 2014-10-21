@@ -1,0 +1,7 @@
+<h1>Click On An Orphan Pic To rescue It</h2>
+
+<% @images.each do |image| %>
+
+  <%= link_to image_tag(image.image, style:'width:100px; height:100px'),image_path(image) %>
+  <%= image.id %>
+<% end %>
