@@ -1,7 +1,8 @@
 <h1>Show All </h1>
 
+
 <% @images.each do |pic| %>
-  <%= link_to pic (image, style:'width:100px; height:100px'), image_path(pic) %>
+  <%= link_to image_tag(pic.image.url(:thumb), alt: "something", style:'width:100px; height:100px'), image_path(pic) %>
   <%= pic.id %>
 
 

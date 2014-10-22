@@ -3,6 +3,6 @@ Your Comments Will Be Searchable And Help Other Users' Find The Pics They Need.<
 
 <% @images.each do |image| %>
 
-  <%= link_to image(style:'width:100px; height:100px'),image_path(image) %>
+  <%= link_to image_tag(image.image.url(:thumb), style:'width:100px; height:100px'), image_path(image) %>
   <%= image.id %>
 <% end %>

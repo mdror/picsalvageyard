@@ -31,15 +31,24 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller', platforms: [:mri_21]
+end
 # Use Unicorn as the app server
 # gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem "paperclip", "~> 4.2"
-gem 'aws-sdk'
+
+
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'fog'
+gem 'unf'
+gem "mini_magick", "~> 4.0.0.rc"
+
+gem 'ransack'
 
 gem "twitter-bootstrap-rails"
 
@@ -47,7 +56,7 @@ group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'pry-rails'
   gem 'byebug'
-
+  gem 'quiet_assets'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0.0.beta4'
 

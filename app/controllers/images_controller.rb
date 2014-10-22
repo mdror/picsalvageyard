@@ -2,9 +2,8 @@ class ImagesController < ApplicationController
  before_action :authenticate_user!
 
   def index
-    @images = Image.rescued
-    #@images = Image.update_attribute(:rescued, true) if @image.comment.any?
-    #@images = @images.rescued
+
+    @images = @q.result(distinct: true)
   end
 
   def rescue
@@ -30,7 +29,7 @@ class ImagesController < ApplicationController
 
 
   def create
-  @user = Image.create(image_params)
+  @image = Image.new(image_params)
     if @image.save
       redirect_to @image
     else
@@ -41,7 +40,7 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:image, :rescue, comments_attributes: [:content])
+    params.require(:image).permit(:image, :rescued, comments_attributes: [:content])
   end
 end
 
