@@ -26,6 +26,12 @@ class ImagesController < ApplicationController
 
   end
 
+  def update
+    @image = Image.find(params[:id])
+    @image.update_attributes(image_params)
+    redirect_to @image
+  end
+
 
 
   def create

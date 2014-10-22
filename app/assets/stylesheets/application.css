@@ -34,5 +34,17 @@ html, body {
     margin: 0 auto -4em;
 }
 
+.lin{
+  text-align: center;
+
+
+}
+
+.navbar.navbar-default.navbar-fixed-top{
+  height: 11%;
+
+}
+
+
 
 

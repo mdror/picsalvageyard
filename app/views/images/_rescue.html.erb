@@ -1,0 +1,15 @@
+<%= form_for @image, html: {multipart: true} do |f| %>
+  <fieldset>
+    <div class='field'>
+      <%= f.file_field :image if @image.new_record? %>
+
+      <%= f.fields_for :comments, @image.comments.build do |c| %>
+        <%= c.label :comments %>
+        <%= c.text_area :content %>
+      <% end %>
+
+  </fieldset>
+  <%= f.submit "Submit" %>
+<% end %>
+
+<br/>

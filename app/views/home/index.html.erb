@@ -1,19 +1,27 @@
-<div class="row">
-  <div class="span4">
-                <%= link_to new_image_path do %>
-            <h1>DONATE PICS</h1><h1><i class="fa fa-picture-o fa-4x"></i></h1>
-            <% end %>
-  </div>
-  <div class="span4">
-               <%= link_to images_path  do %>
-             <h1>DISCOVER PICS  </h1><h1><i class="fa fa-gift fa-4x"></i></i></h1>
+<div class="container">
+  <div class="row">
 
-            <% end %>
+    <div class="col-xs-4">
+         <div class="lin">
+                  <%= link_to new_image_path do %>
+              <h1>DONATE PICS</h1><h1><i class="fa fa-picture-o fa-4x"></i></h1>
+              <% end %>
+        </div>
+    </div>
+    <div class="col-xs-4">
+         <div class="lin">
+                 <%= link_to images_path  do %>
+               <h1>DISCOVER PICS  </h1><h1><i class="fa fa-gift fa-4x"></i></i></h1>
+         </div>
+              <% end %>
 
-  </div>
-  <div class="span4">
-          <%= link_to rescue_images_path do %>
-            <h1>HELP PICS<h1/><h1><i class="fa fa-medkit fa-4x"></i></h1>
-            <% end %>
+    </div>
+    <div class="col-xs-4">
+          <div class="lin">
+            <%= link_to rescue_images_path do %>
+              <h1>HELP PICS<h1/><h1><i class="fa fa-medkit fa-4x"></i></h1>
+              <% end %>
+          </div>
+    </div>
   </div>
 </div>
