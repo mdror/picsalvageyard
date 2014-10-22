@@ -40,6 +40,15 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+    <div id="container">
+      <div id="user_nav">
+        <% if user_signed_in? %>
+           Signed in as <%= current_user.email %>
+          <%= link_to "Sign-out", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Sign-up", new_user_session_path, method: :new %> or <%= link_to "Sign-in", user_session_path, method: :create %>
+        <% end %>
+    </div>
 
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -48,7 +57,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/pages/about">THE FREE IMAGE REPOSITORY<h6> Like 'give a penny, take a penny' for stock photos </h6></a>
+        <a class="navbar-brand" href="/">THE FREE IMAGE REPOSITORY<h6> Like 'give a penny, take a penny' for stock photos </h6></a>
 
 
         <div class="navbar-collapse collapse navbar-responsive-collapse">
@@ -56,6 +65,7 @@
             <li><%= link_to "GIVE", new_image_path  %></li>
             <li><%= link_to "TAKE", images_path  %></li>
             <li><%= link_to "HELP", rescue_images_path  %></li>
+            <li><%= link_to "ABOUT", pages_about_path  %></li>
             <li><form class="navbar-search pull-right">
                   <input type="text" class="search-query" placeholder="Search">
                 </form>

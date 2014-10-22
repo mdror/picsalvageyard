@@ -6,8 +6,8 @@ class Image < ActiveRecord::Base
   # accepts_nested_attributes_for :comments
 
 
-  # scope :not_rescued, -> { where(rescued: false) }
-  # scope :rescued, -> { where(rescued: true) }
+  scope :not_rescued, -> { where(rescued: false) }
+  scope :rescued, -> { where(rescued: true) }
 
   # before_save :update_rescue
 
